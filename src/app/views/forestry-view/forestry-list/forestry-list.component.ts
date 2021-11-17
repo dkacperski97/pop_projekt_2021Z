@@ -30,4 +30,8 @@ export class ForestryListComponent implements IForestryListView, OnInit {
   showForestries(forestries: ForestryDto[]): void {
     this.forestries = forestries;
   }
+
+  getLocation(location: any): string {
+    return JSON.stringify(location);
+  }
 }
