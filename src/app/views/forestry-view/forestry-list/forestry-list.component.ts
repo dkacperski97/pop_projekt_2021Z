@@ -30,6 +30,7 @@ export class ForestryListComponent implements IForestryListView, OnInit  {
 
   onShowDialogButtonClick(): void {
     this.forestryListEventHandler!.addForestryClicked();
+    
   }
 
   showForestries(forestries: ForestryDto[]): void {
@@ -39,9 +40,5 @@ export class ForestryListComponent implements IForestryListView, OnInit  {
     if (this.paginator) {
       this.dataSource.paginator = this.paginator;
     }
-  }
-
-  getLocation(location: any): string {
-    return JSON.stringify(location);
   }
 }

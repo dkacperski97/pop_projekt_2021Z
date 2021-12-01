@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { ForestryWindowComponent } from './windows/forestry-window/forestry-window.component';
 import { AddForestryDialogComponent } from './views/forestry-view/add-forestry-dialog/add-forestry-dialog.component';
 import { ForestryListComponent } from './views/forestry-view/forestry-list/forestry-list.component';
+import { SensorWindowComponent } from './windows/sensor-window/sensor-window.component';
+import { AddSensorDialogComponent } from './views/sensor-view/add-sensor-dialog/add-sensor-dialog.component';
+import { SensorListComponent } from './views/sensor-view/sensor-list/sensor-list.component';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -22,8 +25,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatInputModule} from "@angular/material/input";
 import { MatPaginatorModule } from '@angular/material/paginator'; 
 import { AddForestryDialogFormComponent } from './views/forestry-view/add-forestry-dialog/add-forestry-dialog-form/add-forestry-dialog-form.component';
+import { AddSensorDialogFormComponent } from './views/sensor-view/add-sensor-dialog/add-sensor-dialog-form/add-sensor-dialog-form.component';
 import { PositiveDialogComponent } from './views/dialogs/positive-dialog/positive-dialog.component';
 import { NegativeDialogComponent } from './views/dialogs/negative-dialog/negative-dialog.component';
+import { TokenGeneratorShowerComponent } from './views/token-view/token-generator-shower/token-generator-shower.component';
+import { TokenWindowComponent } from './windows/token-window/token-window.component';
+import { TokenModalComponent } from './views/token-view/token-modal/token-modal.component';
+import { GenerateButtonContainerComponent } from './views/token-view/generate-button-container/generate-button-container.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +40,16 @@ import { NegativeDialogComponent } from './views/dialogs/negative-dialog/negativ
     AddForestryDialogComponent,
     ForestryListComponent,
     AddForestryDialogFormComponent,
+    SensorWindowComponent,
+    AddSensorDialogComponent,
+    SensorListComponent,
+    AddSensorDialogFormComponent,
     PositiveDialogComponent,
-    NegativeDialogComponent
+    NegativeDialogComponent,
+    TokenGeneratorShowerComponent,
+    TokenWindowComponent,
+    TokenModalComponent,
+    GenerateButtonContainerComponent
   ],
   imports: [
     BrowserModule,
