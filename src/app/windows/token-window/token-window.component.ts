@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ITokenGeneratorEventHandler } from 'src/app/interfaces/itoken-generator-event-handler';
-import { ITokenGeneratorShower } from 'src/app/interfaces/itoken-generator-shower';
-import { TokenGeneratorAPI } from 'src/app/interfaces/token-generator-api';
+import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { ITokenGeneratorEventHandler } from 'src/app/interfaces/event-handler/itoken-generator-event-handler';
+import { ITokenGeneratorShower } from 'src/app/interfaces/view/itoken-generator-shower';
+import { TokenGeneratorAPI } from 'src/app/interfaces/api/token-generator-api';
 import { TokenGeneratorEventHandler } from 'src/app/presenters/token-presenter/token-generator-event-handler';
 import { TokenGeneratorProxy } from 'src/app/proxy/token-generator-proxy';
 
@@ -11,7 +11,7 @@ import { TokenGeneratorProxy } from 'src/app/proxy/token-generator-proxy';
   templateUrl: './token-window.component.html',
   styleUrls: ['./token-window.component.css']
 })
-export class TokenWindowComponent implements OnInit {
+export class TokenWindowComponent implements AfterViewInit {
   @ViewChild('tokenGeneratorShower') 
   private tokenGeneratorShower: ITokenGeneratorShower|undefined;
 
@@ -23,8 +23,6 @@ export class TokenWindowComponent implements OnInit {
     this.tokenGeneratorProxy = new TokenGeneratorProxy(http);
     this.tokenGeneratorEventHandler = new TokenGeneratorEventHandler(this.tokenGeneratorProxy);
   }
-
-  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     (this.tokenGeneratorEventHandler as TokenGeneratorEventHandler).init(this.tokenGeneratorShower!);

@@ -1,4 +1,4 @@
-import { SensorAPI } from 'src/app/interfaces/sensor-api';
+import { SensorAPI } from 'src/app/interfaces/api/sensor-api';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { SensorDto } from 'src/app/data-types/sensor-dto';
@@ -23,5 +23,18 @@ export class SensorProxy implements SensorAPI {
   }
   getAll(): Observable<SensorDto[]> {
     return this.http.get<SensorDto[]>(environment.apiURL + 'sensor')
+  }
+  assignToForestry(forestryId: string, sensorId: string): Observable<void> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+    };
+    const body = { forestry_id: forestryId, sensor_id: sensorId };
+    return this.http.post<void>(
+      environment.apiURL + 'assign',
+      body,
+      httpOptions
+    );
   }
 }

@@ -1,20 +1,20 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { IForestryListView } from 'src/app/interfaces/iforestry-list-view';
-import { IForestryListEventHandler } from 'src/app/interfaces/iforestry-list-event-handler';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { IForestryListView } from 'src/app/interfaces/view/iforestry-list-view';
+import { IForestryListEventHandler } from 'src/app/interfaces/event-handler/iforestry-list-event-handler';
 import { ForestryListEventHandler  } from 'src/app/presenters/forestry-presenter/forestry-list-event-handler';
-import { IAddForestryEventHandler } from 'src/app/interfaces/iadd-forestry-event-handler';
+import { IAddForestryEventHandler } from 'src/app/interfaces/event-handler/iadd-forestry-event-handler';
 import { AddForestryEventHandler } from 'src/app/presenters/forestry-presenter/add-forestry-event-handler';
 import { ForestryProxy } from 'src/app/proxy/forestry-proxy';
-import { ForestryAPI } from 'src/app/interfaces/forestry-api';
-import { IAddForestryView } from 'src/app/interfaces/iadd-forestry-view';
+import { ForestryAPI } from 'src/app/interfaces/api/forestry-api';
+import { IAddForestryView } from 'src/app/interfaces/view/iadd-forestry-view';
 
 @Component({
   selector: 'app-forestry-window',
   templateUrl: './forestry-window.component.html',
   styleUrls: ['./forestry-window.component.css']
 })
-export class ForestryWindowComponent implements OnInit, AfterViewInit {
+export class ForestryWindowComponent implements AfterViewInit {
   @ViewChild('forestryList') 
   private forestryList: IForestryListView|undefined;
   @ViewChild('addForestryDialog') 
@@ -31,10 +31,8 @@ export class ForestryWindowComponent implements OnInit, AfterViewInit {
     this.addForestryEventHandler = new AddForestryEventHandler(this.forestryProxy);
   }
 
-  ngOnInit(): void {}
-
   ngAfterViewInit(): void {
     this.forestryListEventHandler.init(this.forestryList!, this.addForestryEventHandler!);
-    this.addForestryEventHandler.init(this.addForestryDialog!);
+    this.addForestryEventHandler.init(this.addForestryDialog!, this.forestryListEventHandler!);
   }
 }
