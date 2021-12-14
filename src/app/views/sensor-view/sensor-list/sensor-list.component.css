@@ -17,9 +17,14 @@ main {
     bottom: 50px;
     right: 50px;
 }
-.forestry-list-table {
+.sensor-list-table {
     width: 100%;
 }
 #tree-icon {
     margin-right: 8px;
+}
+.routing{
+    position: absolute;
+    margin-left: 1em;
+    margin-top: 1em;
 }
