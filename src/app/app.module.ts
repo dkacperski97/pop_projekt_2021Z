@@ -11,6 +11,8 @@ import { ForestryListComponent } from './views/forestry-view/forestry-list/fores
 import { SensorWindowComponent } from './windows/sensor-window/sensor-window.component';
 import { AddSensorDialogComponent } from './views/sensor-view/add-sensor-dialog/add-sensor-dialog.component';
 import { SensorListComponent } from './views/sensor-view/sensor-list/sensor-list.component';
+import { ForestActionWindow } from './windows/forest-action-window/forest-action-window.component';
+import { ForestActionListComponent } from './views/forestry-view/forest-action-list/forest-action-list.component';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
@@ -38,13 +40,21 @@ import { SuccessModalComponent } from './views/sensor-view/success-modal/success
 import { ErrorModalComponent } from './views/sensor-view/error-modal/error-modal.component';
 import { AssignForestryDialogComponent } from './views/sensor-view/assign-forestry-dialog/assign-forestry-dialog.component';
 import { HomeComponent } from './views/home-view/home.component';
+import { AddForestActionDispatcher } from './views/forest-action-view/add-forest-action-dispatcher/add-forest-action-dispatcher.component';
+import { Spinner } from './views/forest-action-view/spinner/spinner.component';
+import { NoForestriesMessage } from './views/forest-action-view/no-forestries-message/no-forestries-message.component';
+import { ForestActionCreationSuccessMessage } from './views/forest-action-view/forest-action-creation-success-message/forest-action-creation-success-message.component';
+import { CreateForestActionForm } from './views/forest-action-view/create-forest-action-form/create-forest-action-form.component';
+import { ForestActionCreationFailureMessage } from './views/forest-action-view/forest-action-creation-failure-message/forest-action-creation-failure-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ForestryWindowComponent,
+    ForestActionWindow,
     AddForestryDialogComponent,
     ForestryListComponent,
+    ForestActionListComponent,
     AddForestryDialogFormComponent,
     SensorWindowComponent,
     AddSensorDialogComponent,
@@ -61,7 +71,13 @@ import { HomeComponent } from './views/home-view/home.component';
     SuccessModalComponent,
     ErrorModalComponent,
     AssignForestryDialogComponent,
-    HomeComponent
+    HomeComponent,
+    AddForestActionDispatcher,
+    Spinner,
+    NoForestriesMessage,
+    ForestActionCreationSuccessMessage,
+    CreateForestActionForm,
+    ForestActionCreationFailureMessage
   
   ],
   imports: [
